@@ -3,6 +3,21 @@
  
  Niklas, Fredrik, Shohruh
 
+Objective
+You are going to code a simple wine cellar where you keep track of your favorite wines.
+You want to be able to add wines to the cellar, keep track of the number of wines and print
+out the content of cellar.
+
+When you add wines to your cellar, a confirmation should be written to the console.
+If you try to add more wine bottles than your cellar can handle an error message should
+instead be written.
+
+Mandatory:
+- Work in your assigned group
+- Clone the repository https://github.com/smarlen/GroupAssignments.git
+
+- Complete the code in the methods StringToPrint, InsertWine, PrintWines, NrOfBottles in repository
+
  */
 namespace GroupAssignment1
 {
