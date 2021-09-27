@@ -30,7 +30,8 @@ namespace GroupAssignment1
         public string StringToPrint()
         {
             //Your code
-
+            string contentsOfWine = $"Year: {Year} Name: {Name} GrapeVariant: {Grape} GrapeRegion: {Region}";
+            return contentsOfWine; 
         }
     }
     class Program
@@ -59,6 +60,8 @@ namespace GroupAssignment1
             bOK = InsertWine(myCellar, wine3);
 
             PrintWines(myCellar);
+
+            
         }
 
         /// <summary>
@@ -70,6 +73,23 @@ namespace GroupAssignment1
         private static bool InsertWine(Wine[] myCellar, Wine wine)
         {
             //Your code
+            bool result = false;
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+
+
+
+                if (0 == 0)
+                {
+
+                }
+
+                else Console.WriteLine(result);
+                
+                
+            }
+            
+            return result;
         }
 
         /// <summary>
@@ -79,6 +99,12 @@ namespace GroupAssignment1
         private static void PrintWines(Wine[] myCellar)
         {
             //Your code
+
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                Console.WriteLine($"myCellar{i}: {myCellar[i]}");
+
+            }
         }
 
         /// <summary>
@@ -89,7 +115,19 @@ namespace GroupAssignment1
         /// <returns>Number of bottles in myCellar</returns>
         private static int NrOfBottles(Wine[] myCellar)
         {
+            int numberOfBottles = default;
+
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+               
+                numberOfBottles =+ i;
+            }
+
             //Your code
+            return numberOfBottles;
+
+            
+            
         }
     }
 }
