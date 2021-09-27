@@ -1,5 +1,9 @@
 ﻿using System;
+/*
+ 
+ Niklas, Fredrik, Shohruh
 
+ */
 namespace GroupAssignment1
 {
     public enum GrapeVariants
@@ -26,7 +30,7 @@ namespace GroupAssignment1
         public string StringToPrint()
         {
             //Your code
-            
+
         }
     }
     class Program
