@@ -45,7 +45,17 @@ namespace GroupAssignment1
         public string StringToPrint()
         {
             //Your code
+            //tror att denna delen är klar
 
+            string contentOfWine = $"Wine: {Name} Year: {Year} GrapeVariant: {Grape} GrapeRegion: {Region}";
+            return contentOfWine;
+
+
+        }
+
+        public void Print() 
+        {
+            StringToPrint();
         }
     }
     class Program
@@ -83,8 +93,10 @@ namespace GroupAssignment1
         /// <param name="wine"></param>
         /// <returns>true - if insertion was possible, otherwise false</returns>
         private static bool InsertWine(Wine[] myCellar, Wine wine)
-        {
-            //Your code
+        {   //Your code
+           
+
+
         }
 
         /// <summary>
@@ -94,6 +106,10 @@ namespace GroupAssignment1
         private static void PrintWines(Wine[] myCellar)
         {
             //Your code
+            for (int bottle = 0; bottle < myCellar.Length; bottle++)
+            {
+                myCellar[bottle].Print();
+            }
         }
 
         /// <summary>
@@ -105,6 +121,42 @@ namespace GroupAssignment1
         private static int NrOfBottles(Wine[] myCellar)
         {
             //Your code
+            
+            int numberOfBottles = 0;
+
+            for (int bottle = 0; bottle< myCellar.Length; bottle++)
+            {
+                if (myCellar.Year != null )
+                numberOfBottles = +bottle;
+            } 
+            
+            return numberOfBottles;
         }
     }
 }
+
+
+
+/*
+ 
+             bool result = default; 
+            
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                int k = 1;
+                if (myCellar[i] )
+                {
+                    myCellar[i] = wine+k;
+                    result = true;
+                } else result = false;
+
+                k++;
+                
+                
+
+            }
+                
+
+            return result;
+
+ */
