@@ -33,11 +33,10 @@ namespace GroupAssignment1
             string contentOfWine = $"Wine: {Name} Year: {Year} GrapeVariant: {Grape} GrapeRegion: {Region}";
             return contentOfWine;
 
-
         }
 
-   }
-    
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -47,7 +46,7 @@ namespace GroupAssignment1
             Wine[] myCellar = new Wine[maxNrBottles];
 
             Console.WriteLine($"My cellar can have maximum {maxNrBottles} bottles");
-            
+
             Wine wine1 = new Wine { Year = 2000, Name = "Château Lafite Rothschild", Grape = GrapeVariants.CabernetSauvignon, Region = GrapeRegions.Bordeaux };
             bool bOK = InsertWine(myCellar, wine1);
 
@@ -63,10 +62,10 @@ namespace GroupAssignment1
             Wine wine5 = new Wine { Year = 1992, Name = "Screaming Eagle", Grape = GrapeVariants.CabernetSauvignon, Region = GrapeRegions.RiberaDelDuero };
             bOK = InsertWine(myCellar, wine5);
 
-            
 
-            
+
         }
+
 
         /// <summary>
         /// Inserts a wine into myCellar at first available position
@@ -74,10 +73,12 @@ namespace GroupAssignment1
         /// <param name="myCellar"></param>
         /// <param name="wine"></param>
         /// <returns>true - if insertion was possible, otherwise false</returns>
+      
         private static bool InsertWine(Wine[] myCellar, Wine wine)
         {   //Your code
 
-           bool result = false;
+
+            bool result = false;
 
             for (int i = 0; i < myCellar.Length; i++)
             {
@@ -85,55 +86,56 @@ namespace GroupAssignment1
                 if (myCellar[i].Name == null)
                 {
                     myCellar[i] = wine;
-                    Console.WriteLine($"[{i}] Succesfully added: {myCellar[i].StringToPrint()}");
+                    Console.WriteLine($"{i + 1} Added to my cellar: {myCellar[i].StringToPrint()}");
 
                     return true;
-
                 }
-
-
-
             }
+
+            Console.WriteLine($"Could not add to my cellar: {wine.StringToPrint()}");
             Console.WriteLine();
-            Console.WriteLine($"Insertion failed: {wine.StringToPrint()}");
+
+            Console.WriteLine($"My cellar has {myCellar.Length} wines:");
 
             return result;
 
         }
 
-            /// <summary>
-            /// Print out all the wines in myCellar
-            /// </summary>
-            /// <param name="myCellar"></param>
-            private static void PrintWines(Wine[] myCellar)
+        /// <summary>
+        /// Print out all the wines in myCellar
+        /// </summary>
+        /// <param name="myCellar"></param>
+        private static void PrintWines(Wine[] myCellar)
+        {
+            //Your code
+            for (int bottle = 0; bottle < myCellar.Length; bottle++)
             {
-                //Your code
-                for (int bottle = 0; bottle < myCellar.Length; bottle++)
-                {
-                    myCellar[bottle].StringToPrint();
-                }
+                myCellar[bottle].StringToPrint();
             }
+        }
 
-            /// <summary>
-            /// Counts the number of bottles in myCellar. That is all items
-            /// where Year is not null 
-            /// </summary>
-            /// <param name="myCellar"></param>
-            /// <returns>Number of bottles in myCellar</returns>
-            private static int NrOfBottles(Wine[] myCellar)
+        /// <summary>
+        /// Counts the number of bottles in myCellar. That is all items
+        /// where Year is not null 
+        /// </summary>
+        /// <param name="myCellar"></param>
+        /// <returns>Number of bottles in myCellar</returns>
+        private static int NrOfBottles(Wine[] myCellar)
+        {
+            //Your code
+
+            int numberOfBottles = 0;
+
+            for (int bottle = 0; bottle < myCellar.Length; bottle++)
             {
-                //Your code
+                if (myCellar[bottle].Year != null)
+                    numberOfBottles += bottle;
 
-                int numberOfBottles = 0;
-
-                for (int bottle = 0; bottle < myCellar.Length; bottle++)
-                {
-                    if (myCellar[bottle].Year != null)
-                        numberOfBottles += bottle;
-
-                }
-                return numberOfBottles;
             }
+            return numberOfBottles;
+        }
+
+        
     }
 } 
 
