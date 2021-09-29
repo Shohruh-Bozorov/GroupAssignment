@@ -122,14 +122,14 @@ namespace GroupAssignment1
         {
             //Your code
             
-            int numberOfBottles = 0;
+            int numberOfBottles = 0;         
 
             for (int bottle = 0; bottle< myCellar.Length; bottle++)
             {
-                if (myCellar.Year != null )
-                numberOfBottles = +bottle;
-            } 
-            
+                if (myCellar[bottle].Year != null)
+                    numberOfBottles += bottle;               
+
+            }
             return numberOfBottles;
         }
     }
