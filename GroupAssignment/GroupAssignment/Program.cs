@@ -28,8 +28,6 @@ namespace GroupAssignment1
         public string StringToPrint()
         {
             //Your code
-            //tror att denna delen är klar
-
             string contentOfWine = $"Wine: {Name} Year: {Year} GrapeVariant: {Grape} GrapeRegion: {Region}";
             return contentOfWine;
 
@@ -62,7 +60,8 @@ namespace GroupAssignment1
             Wine wine5 = new Wine { Year = 1992, Name = "Screaming Eagle", Grape = GrapeVariants.CabernetSauvignon, Region = GrapeRegions.RiberaDelDuero };
             bOK = InsertWine(myCellar, wine5);
 
-
+            Console.WriteLine();
+            PrintWines(myCellar);
 
         }
 
@@ -76,7 +75,6 @@ namespace GroupAssignment1
       
         private static bool InsertWine(Wine[] myCellar, Wine wine)
         {   //Your code
-
 
             bool result = false;
 
@@ -93,10 +91,6 @@ namespace GroupAssignment1
             }
 
             Console.WriteLine($"Could not add to my cellar: {wine.StringToPrint()}");
-            Console.WriteLine();
-
-            Console.WriteLine($"My cellar has {myCellar.Length} wines:");
-
             return result;
 
         }
@@ -107,10 +101,13 @@ namespace GroupAssignment1
         /// <param name="myCellar"></param>
         private static void PrintWines(Wine[] myCellar)
         {
+            Console.WriteLine($"My cellar has {myCellar.Length} wines:");
+
             //Your code
             for (int bottle = 0; bottle < myCellar.Length; bottle++)
             {
                 myCellar[bottle].StringToPrint();
+                Console.WriteLine(myCellar[bottle].StringToPrint());
             }
         }
 
@@ -130,7 +127,6 @@ namespace GroupAssignment1
             {
                 if (myCellar[bottle].Year != null)
                     numberOfBottles += bottle;
-
             }
             return numberOfBottles;
         }
