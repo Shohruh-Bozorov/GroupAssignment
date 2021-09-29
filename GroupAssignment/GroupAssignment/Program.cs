@@ -5,14 +5,14 @@
 namespace GroupAssignment1
 {
     public enum GrapeVariants
-    {
+    {   
         CabernetSauvignon, PinotNoir, Corvina, Shiraz, Merlot, Chablis,
-        Riesling, Tempranillo
+        Riesling, Tempranillo, Null
     }
     public enum GrapeRegions
     {
         Bordeaux, Burgundy, Veneto, Piedmonte, RiberaDelDuero,
-        NapaValley, Puglia, Pfalz
+        NapaValley, Puglia, Pfalz, Null
     }
     public struct Wine
     {
@@ -62,6 +62,20 @@ namespace GroupAssignment1
 
             Console.WriteLine();
             PrintWines(myCellar);
+
+            Console.WriteLine();
+            Console.WriteLine("Enter the name of the wine you want to search for: (press q or Q to quit) ");
+            string input = Console.ReadLine();
+            
+            Console.WriteLine();
+            SearchWine(myCellar,input);
+
+            Console.WriteLine("Enter the name of the wine you want to delete: (press q or Q to quit) ");
+            string input0 = Console.ReadLine();
+            
+            Console.WriteLine();
+            DeleteWine(myCellar, input0);
+
 
         }
 
@@ -130,8 +144,50 @@ namespace GroupAssignment1
             }
             return numberOfBottles;
         }
-
         
+        // Challange metoder...............................................
+        private static bool SearchWine(Wine[] myCellar, string inputName) 
+        {
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                if (inputName == myCellar[i].Name)
+                {
+                    Console.WriteLine($"{inputName} found at index [{i}]");
+                    return true;
+                }
+
+                if (inputName == "q" || inputName == "Q")
+                    break;
+            }
+            
+            return false;
+        }
+
+        private static bool DeleteWine(Wine[] myCellar, string inputName)
+        {
+            for (int i = 0; i < myCellar.Length; i++)
+            {
+                if (inputName == myCellar[i].Name)
+                { 
+                    myCellar[i].Name = null;
+                    myCellar[i].Year = null;
+                    myCellar[i].Region = GrapeRegions.Null;
+                    myCellar[i].Grape = GrapeVariants.Null;
+
+                    Console.WriteLine($"{inputName} was deleted from index [{i}] \n{myCellar[i].StringToPrint()}");
+                    return true;
+
+                }
+
+                if (inputName == "q" || inputName == "Q")
+                    break;
+            }
+
+            Console.WriteLine(inputName + " not found");
+            return false;
+        }
+
+
     }
 } 
 
